@@ -2,10 +2,14 @@
 
 #include <SFML/Graphics.hpp>
 #include <math.h>
+#include <algorithm>
+#include <iostream>
+#include <ctime>
+#include <random>
 
 class Utils {
 public :
-	static sf::Vector2f Normalize(sf::Vector2f toNormalize) {
+	static sf::Vector2f Normalize(const sf::Vector2f toNormalize) {
 
 		sf::Vector2f returned = toNormalize;
 
@@ -24,5 +28,39 @@ public :
 		}
 
 		return returned;
+	}
+
+	static sf::Vector2f Clamp(const sf::Vector2f toClamp, const sf::Vector2f minClampingVector, const sf::Vector2f maxClampingVector) {
+		sf::Vector2f returned = toClamp;
+
+		returned.x = Clamp(toClamp.x, minClampingVector.x, maxClampingVector.x);
+		returned.y = Clamp(toClamp.y, minClampingVector.y, maxClampingVector.y);
+
+		return returned;
+	}
+
+	static sf::Vector2f Dunno(const sf::Vector2f toChange, float theFloat) {
+		sf::Vector2f d = toChange;
+		return d * (float)(1.0 / fmax((double)toChange.x, (double)toChange.y));
+	}
+
+	static float Dot(const sf::Vector2f first, const sf::Vector2f second) {
+		return (first.x * second.x) + (first.y * second.y);
+	}
+
+	static float Clamp(float number, float low, float high) {
+		if (number > high) number = high;
+		if (number < low) number = low;
+
+		return number;
+	}
+
+	static int RandomRange(int min, int max) {
+		std::random_device dev;
+		std::mt19937 rng(dev());
+		std::uniform_int_distribution<std::mt19937::result_type> dist6(min, max);
+		int i = dist6(rng) - 1;
+		if (i < 0) i = 0;
+		return i;
 	}
 };

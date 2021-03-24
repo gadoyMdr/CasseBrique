@@ -52,6 +52,7 @@ class GameObject
 		void SetPosition(const sf::Vector2f pos);
 
 		sf::Vector2f GetPosition();
+		sf::Vector2f GetDirection();
 		sf::Shape* GetShape();
 
 		void Move();

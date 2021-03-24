@@ -1,9 +1,12 @@
 
 #include "Ball.h"
 #include "Global.h"
+#include <cstdlib>
 #include <iostream>
+#include <ctime>
 #include "GameObject.h"
 #include <vector>
+#include "Utils.h"
 
 int main()
 {
@@ -11,19 +14,37 @@ int main()
     
     std::vector<GameObject*> objects;
 
-    GameObject go = GameObject("Ball", Tag::Ball, new sf::CircleShape(20,50), sf::Color::Blue);
+    for (int i = 0; i < 1; i++) {
+        GameObject go = GameObject("Ball", Tag::Ball, new sf::CircleShape(20, 50), sf::Color::Blue);
+        go.SetDirection(sf::Vector2f(1,1));
+        go.SetSpeed(7000);
+        go.SetPosition(sf::Vector2f(80, 80));
 
-    go.SetDirection(sf::Vector2f(1, 0));
-    go.SetSpeed(350);
-    go.SetPosition(sf::Vector2f(0, 200));
+        objects.push_back(&go);
+    }
 
-    GameObject go1 = GameObject("Ball", Tag::Ball, new sf::CircleShape(20, 50), sf::Color::Blue);
+    
 
-    go1.SetDirection(sf::Vector2f(-1, 0));
-    go1.SetSpeed(350);
-    go1.SetPosition(sf::Vector2f(600, 200));
+    GameObject go1 = GameObject("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40,40)), sf::Color::Blue);
+    go1.SetPosition(sf::Vector2f(450, 200));
 
-    objects.push_back(&go);
+    GameObject go2 = GameObject("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), sf::Color::Blue);
+    go2.SetPosition(sf::Vector2f(0, 0));
+
+    GameObject go3 = GameObject("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), sf::Color::Blue);
+    go3.SetPosition(sf::Vector2f(0, 0));
+
+    GameObject go4 = GameObject("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), sf::Color::Blue);
+    go4.SetPosition(sf::Vector2f(800, 0));
+
+    GameObject go5 = GameObject("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), sf::Color::Blue);
+    go5.SetPosition(sf::Vector2f(0, 600));
+
+    objects.push_back(&go4);
+    objects.push_back(&go5);
+    objects.push_back(&go3);
+    objects.push_back(&go2);
+    
     objects.push_back(&go1);
 
     // Start the game loop
