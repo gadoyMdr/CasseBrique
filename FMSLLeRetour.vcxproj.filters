@@ -11,9 +11,6 @@
     <Filter Include="GameEngine">
       <UniqueIdentifier>{2d5f6a5f-d206-455b-ad1d-d9541e7b3222}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\GameObject">
-      <UniqueIdentifier>{79248b94-52e7-4d9a-abfc-4b6d0b600218}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameEngine\MonoBehavior">
       <UniqueIdentifier>{df92127a-c2ea-4be0-a1ea-ba4a9d38ab91}</UniqueIdentifier>
     </Filter>
@@ -26,19 +23,22 @@
     <Filter Include="GameEngine\Entity\Player">
       <UniqueIdentifier>{fcd35f73-bc25-4ccb-8105-db592f8d4b39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject">
+      <UniqueIdentifier>{79248b94-52e7-4d9a-abfc-4b6d0b600218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameManager">
+      <UniqueIdentifier>{0609ba0d-bcfa-46c0-b1f4-a70936b93a1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMSLLeRetour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Global.cpp">
       <Filter>Headers</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>GameEngine\GameObject</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="MonoBehavior.cpp">
       <Filter>GameEngine\MonoBehavior</Filter>
@@ -52,11 +52,11 @@
     <ClCompile Include="Player.cpp">
       <Filter>GameEngine\Entity\Player</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>GameEngine\MonoBehavior\GameManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ball.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -64,7 +64,7 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>GameEngine\GameObject</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="MonoBehavior.h">
       <Filter>GameEngine\MonoBehavior</Filter>
@@ -77,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>GameEngine\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>GameEngine\MonoBehavior\GameManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
