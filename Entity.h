@@ -23,6 +23,7 @@ public :
 	void SetDirection(const sf::Vector2f direction);
 	void SetSpeed(const float speed);
 
+	virtual void OnHit();
 
 	void Update();
 

@@ -1,6 +1,6 @@
 #include "MonoBehavior.h"
 
-std::vector<MonoBehavior*> MonoBehavior::all = std::vector<MonoBehavior*> (0);
+std::list<MonoBehavior*> MonoBehavior::all = std::list<MonoBehavior*> (0);
 
 MonoBehavior::MonoBehavior() {
 	all.push_back(this);
@@ -9,6 +9,12 @@ MonoBehavior::MonoBehavior() {
 MonoBehavior::~MonoBehavior() {
 }
 
-std::vector<MonoBehavior*> MonoBehavior::GetAllMonobehaviors() {
+std::list<MonoBehavior*> MonoBehavior::GetAllMonobehaviors() {
 	return all;
+}
+
+void MonoBehavior::Destroy() {
+	all.erase(std::remove(all.begin(), all.end(), this), all.end());
+	delete this;
+	
 }

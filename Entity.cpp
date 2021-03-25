@@ -47,6 +47,8 @@ void Entity::Update() {
     Draw();
 }
 
+void Entity::OnHit(){}
+
 void Entity::Draw() {
     Global::window.draw(*shape);
 }
@@ -58,9 +60,15 @@ void Entity::CheckCollisions() {
         Entity* go = dynamic_cast<Entity*>(mono);
         if (go != nullptr) {
 
+            
 
             if (tag == Tag::Ball && go->tag == Tag::Rectangle) {
+
+                if (mono == this)
+                    return;
+
                 sf::CircleShape* circle = (sf::CircleShape*)shape;
+
                 sf::Vector2f distanceFromMiddles = GetPosition() - go->GetPosition();
                 sf::Vector2f localGoExtends = sf::Vector2f(go->GetShape()->getLocalBounds().width / 2.0, go->GetShape()->getLocalBounds().height / 2.0);
                 sf::Vector2f closestPointOnGO = go->GetPosition() + Utils::Clamp(distanceFromMiddles, -localGoExtends, localGoExtends);
@@ -104,6 +112,8 @@ void Entity::CheckCollisions() {
 
 
                 if (length < circle->getRadius()) {
+                    go->OnHit();
+
                     SetPosition(GetPosition() - offsetNeeded);
 
                     if (best_match == 1 || best_match == 3)
@@ -111,8 +121,6 @@ void Entity::CheckCollisions() {
                     else
                         SetDirection(sf::Vector2f(GetDirection().x, GetDirection().y * -1));
                 }
-
-
             }
         }
     }
