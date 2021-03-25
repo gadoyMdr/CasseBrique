@@ -5,6 +5,7 @@
 #include <vector>
 #include "Utils.h"
 #include "Brick.h"
+#include "Player.h"
 
 int main()
 {
@@ -18,9 +19,11 @@ int main()
     sprite.setScale(sf::Vector2f(0.7, 0.7));
     sprite.setColor(Global::backGroundColor);
     
+
     Entity* go = new Entity("Ball", Tag::Ball, new sf::CircleShape(20, 50), Global::themeColor, sf::Vector2f(300, 300));
     go->SetDirection(sf::Vector2f(1, 1));
-    go->SetSpeed(1000);
+    go->SetSpeed(350);
+
 
     int paddingX = 100;
     int paddingY = 50;
@@ -28,10 +31,13 @@ int main()
     int offsety = 100;
 
     for (int j = 0; j < 3; j++)
-        for (int i = 0; i < 5; i++) 
-            new Brick(sf::Vector2f(i * offsetx + paddingX, j * offsety + paddingY));
+        for (int i = 0; i < 5; i++) {
+            Brick* l = new Brick(sf::Vector2f(i * offsetx + paddingX, j * offsety + paddingY));
+            l->SetHealth(5);
+        }
+            
         
-    
+    new Player(0.25, sf::Vector2f(80, 18));
     
 
     new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), Global::themeColor, sf::Vector2f(0, 0));

@@ -23,6 +23,9 @@
     <Filter Include="GameEngine\Entity\Brick">
       <UniqueIdentifier>{e1d9df4d-0802-4425-99cd-f457287db5a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\Entity\Player">
+      <UniqueIdentifier>{fcd35f73-bc25-4ccb-8105-db592f8d4b39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMSLLeRetour.cpp">
@@ -46,6 +49,9 @@
     <ClCompile Include="Brick.cpp">
       <Filter>GameEngine\Entity\Brick</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameEngine\Entity\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -68,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="Brick.h">
       <Filter>GameEngine\Entity\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameEngine\Entity\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
