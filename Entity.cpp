@@ -2,10 +2,11 @@
 #include "Global.h"
 #include "Utils.h"
 
-Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color color) : GameObject(name, _tag) {
+Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos) : GameObject(name, _tag) {
     shape = _shape;
     shape->setFillColor(color);
     shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2);
+    shape->setPosition(pos);
 }
 
 Entity::~Entity() {

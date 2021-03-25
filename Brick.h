@@ -10,8 +10,9 @@ private:
 
 public :
 	Brick();
-	Brick(int w, int x, int health);
-	Brick(int w, int x, sf::Color color, int health);
+	Brick(sf::Vector2f pos);
+	Brick(sf::Vector2f size, int health, sf::Vector2f pos);
+	Brick(sf::Vector2f size, sf::Color color, int health, sf::Vector2f pos);
 
 	~Brick();
 

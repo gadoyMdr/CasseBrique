@@ -1,11 +1,16 @@
-﻿  Entity.cpp
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(9,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Entity.cpp(73,146): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+﻿  FMSLLeRetour.cpp
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(12,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\FMSLLeRetour.cpp(18,42): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Entity.cpp(73,99): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\FMSLLeRetour.cpp(32,72): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\FMSLLeRetour.cpp(32,48): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

@@ -10,7 +10,7 @@ private :
 	float speed;
 
 public :
-	Entity(const std::string& name, Tag _tag, sf::Shape* _shape, sf::Color color);
+	Entity(const std::string& name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos);
 	~Entity();
 
 

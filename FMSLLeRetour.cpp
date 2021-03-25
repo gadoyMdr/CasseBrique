@@ -9,27 +9,38 @@
 int main()
 {
     sf::Clock deltaClock;
-   
+    sf::Sprite sprite;
 
-    Entity* go = new Entity("Ball", Tag::Ball, new sf::CircleShape(20, 50), sf::Color::Blue);
+    sf::Texture t;
+    t.loadFromFile("Textures/background.png");
+    sprite.setTexture(t);
+    t.setSmooth(true);
+    sprite.setScale(sf::Vector2f(0.7, 0.7));
+    sprite.setColor(Global::backGroundColor);
+    
+    Entity* go = new Entity("Ball", Tag::Ball, new sf::CircleShape(20, 50), Global::themeColor, sf::Vector2f(300, 300));
     go->SetDirection(sf::Vector2f(1, 1));
     go->SetSpeed(1000);
-    go->SetPosition(sf::Vector2f(80, 80));
 
-    Brick* br = new Brick(40, 60, 2);
-    br->SetPosition(sf::Vector2f(450, 200));
+    int paddingX = 100;
+    int paddingY = 50;
+    int offsetx = 150;
+    int offsety = 100;
 
-    Entity* go2 = new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), sf::Color::Blue);
-    go2->SetPosition(sf::Vector2f(0, 0));
+    for (int j = 0; j < 3; j++)
+        for (int i = 0; i < 5; i++) 
+            new Brick(sf::Vector2f(i * offsetx + paddingX, j * offsety + paddingY));
+        
+    
+    
 
-    Entity* go3 = new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), sf::Color::Blue);
-    go3->SetPosition(sf::Vector2f(0, 0));
+    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), Global::themeColor, sf::Vector2f(0, 0));
 
-    Entity* go4 = new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), sf::Color::Blue);
-    go4->SetPosition(sf::Vector2f(800, 0));
+    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), Global::themeColor, sf::Vector2f(0, 0));
 
-    Entity* go5 = new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), sf::Color::Blue);
-    go5->SetPosition(sf::Vector2f(0, 600));
+    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), Global::themeColor, sf::Vector2f(800, 0));
+
+    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), Global::themeColor, sf::Vector2f(0, 600));
 
 
     // Start the game loop
@@ -45,15 +56,17 @@ int main()
                 Global::window.close();
         }
         // Clear screen
-        Global::window.clear();
+        Global::window.clear(sf::Color::White);
 
-
+        Global::window.draw(sprite);
 
         for (MonoBehavior* mono : MonoBehavior::GetAllMonobehaviors()) {
             mono->Update();
             if (mono->toDestroy)
                 mono->Destroy();
         }
+
+        
 
         // Update the window
         Global::window.display();
