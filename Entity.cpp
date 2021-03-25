@@ -29,6 +29,14 @@ float Entity::GetSpeed() {
     return speed;
 }
 
+sf::Color Entity::GetColor() {
+    return shape->getFillColor();
+}
+
+void Entity::SetColor(sf::Color* color) {
+    shape->setFillColor(*color);
+}
+
 void Entity::SetPosition(const sf::Vector2f pos) {
     shape->setPosition(pos);
 }

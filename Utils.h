@@ -63,4 +63,17 @@ public :
 		if (i < 0) i = 0;
 		return i;
 	}
+
+	static sf::Color* LerpColor(sf::Color colorOne, sf::Color colorTwo, float value) {
+		sf::Color* color = new sf::Color();
+		color->r = Lerp(colorOne.r, colorTwo.r, value);
+		color->g = Lerp(colorOne.g, colorTwo.g, value);
+		color->b = Lerp(colorOne.b, colorTwo.b, value);
+		color->a = Lerp(colorOne.a, colorTwo.a, value);
+		return color;
+	}
+
+	static float Lerp(float one, float two, float value) {
+		return (one + two) / 2;
+	}
 };

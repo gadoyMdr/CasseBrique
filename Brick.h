@@ -7,7 +7,7 @@ class Brick : public Entity
 {
 private:
 	int health;
-
+	int startHealth;
 public :
 	Brick();
 	Brick(sf::Vector2f pos);
@@ -17,10 +17,12 @@ public :
 	~Brick();
 
 	int GetHealth();
+	int GetStartHealth();
 	void SetHealth(int i);
 
 	void OnHit() override;
 
+	void SetHealthColor();
 	void Damage();
 	void Update();
 };
