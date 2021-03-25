@@ -46,8 +46,6 @@ int main()
 
     new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), Global::themeColor, sf::Vector2f(800, 0));
 
-    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), Global::themeColor, sf::Vector2f(0, 600));
-
 
     // Start the game loop
     while (Global::window.isOpen())

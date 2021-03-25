@@ -15,6 +15,6 @@ public :
 
 	void ProcessInputs();
 	void Move(sf::Vector2f dir);
-	void CheckPosition(sf::Vector2f dir);
+	bool CheckPosition(sf::Vector2f* dir);
 };
 

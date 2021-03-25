@@ -20,5 +20,15 @@ void Player::ProcessInputs() {
 }
 
 void Player::Move(sf::Vector2f dir) {
-	SetPosition(GetPosition() + dir * speed);
+	sf::Vector2f temp(GetPosition() + dir * speed);
+
+	if(CheckPosition(&temp))
+		SetPosition(temp);
+}
+
+bool Player::CheckPosition(sf::Vector2f* pos) {
+	float maxX = Global::window.getDefaultView().getSize().x - GetShape()->getLocalBounds().width;
+	float minX = 0 + GetShape()->getLocalBounds().width;
+
+	return pos->x < maxX&& pos->x > minX;
 }
