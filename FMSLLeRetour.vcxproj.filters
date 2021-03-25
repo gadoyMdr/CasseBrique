@@ -5,11 +5,20 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="CPP">
-      <UniqueIdentifier>{495b08ed-674e-41b9-81d5-f9786a63287e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers">
       <UniqueIdentifier>{a01e5b3e-adf6-4c61-845b-4e4622fde1d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{2d5f6a5f-d206-455b-ad1d-d9541e7b3222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GameObject">
+      <UniqueIdentifier>{79248b94-52e7-4d9a-abfc-4b6d0b600218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior">
+      <UniqueIdentifier>{df92127a-c2ea-4be0-a1ea-ba4a9d38ab91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Entity">
+      <UniqueIdentifier>{7c5f2e82-5e2e-47cd-b8b6-ed6d84615422}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,11 +31,14 @@
     <ClCompile Include="Global.cpp">
       <Filter>Headers</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Headers</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Headers</Filter>
+      <Filter>GameEngine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MonoBehavior.cpp">
+      <Filter>GameEngine\MonoBehavior</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>GameEngine\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -39,11 +51,14 @@
     <ClInclude Include="Utils.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Headers</Filter>
+      <Filter>GameEngine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MonoBehavior.h">
+      <Filter>GameEngine\MonoBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>GameEngine\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

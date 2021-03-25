@@ -1,6 +1,3 @@
 ﻿  FMSLLeRetour.cpp
 C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(9,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\FMSLLeRetour.cpp(65,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\FMSLLeRetour.cpp(69,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\FMSLLeRetour.cpp(71,31): warning C4018: '<': signed/unsigned mismatch
   FMSLLeRetour.vcxproj -> C:\Users\logan\source\repos\FMSLLeRetour\Debug\FMSLLeRetour.exe
