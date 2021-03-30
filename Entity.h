@@ -49,7 +49,7 @@ public :
 
 	void Update();
 
-	void Move();
+	virtual void Move();
 	void CheckCollisions();
 	virtual void ReactToCollision(CollisionFrom from, sf::Vector2f offset) = 0;
 	virtual void Draw();

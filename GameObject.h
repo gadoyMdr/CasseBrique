@@ -11,13 +11,14 @@ private:
 	std::vector<GameObject*> children;
 
 public :
-		
+
 	enum class Tag {
 		Ball,
 		Rectangle,
 		None
 	};
 
+	GameObject* parent;	//will be null if isnt a child
 	Tag tag;
 	std::string name;
 
@@ -27,9 +28,8 @@ public :
 
 	void Update();
 
-	void MoveChildren(sf::Vector2f dir);
 	void MakeChildOf(GameObject* go);
-	void Free(GameObject* go);
+	void Free();
 
 	virtual void OnTriggerChildrenUpdate();
 };
