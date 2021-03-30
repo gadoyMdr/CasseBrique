@@ -17,6 +17,18 @@ GameManager* GameManager::GetInstance() {
     return instance;
 }
 
+void GameManager::AddBall(RoundEntity* ball) {
+    balls.push_back(ball);
+}
+
+void GameManager::RemoveBall(RoundEntity* ball) {
+    balls.erase(std::remove(balls.begin(), balls.end(), ball), balls.end());
+}
+
+std::vector<RoundEntity*>* GameManager::GetBalls() {
+    return &balls;
+}
+
 void GameManager::Update() {
     Global::window.draw(backGroundSprite);
 }
@@ -59,6 +71,8 @@ void GameManager::FirstSpawn() {
     RoundEntity* go = new RoundEntity(Global::themeColor, 20, sf::Vector2f(300, 350));
     go->SetDirection(sf::Vector2f(1, 1));
     go->SetSpeed(350);
+
+    AddBall(go);
 
     new Player(0.30, sf::Vector2f(80, 18));
 

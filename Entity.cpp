@@ -69,7 +69,8 @@ void Entity::Draw() {
 }
 
 void Entity::Move() {
-    SetPosition(GetPosition() + direction * speed * Global::deltaTime);
+    if(parent == nullptr)
+        SetPosition(GetPosition() + direction * speed * Global::deltaTime);
 }
 
 void Entity::CheckCollisions() {

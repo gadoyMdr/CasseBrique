@@ -19,9 +19,9 @@ GameObject::GameObject(const std::string& _name, Tag _tag) : GameObject(_name) {
 }
 
 void GameObject::Update(){
-    for (GameObject* go : children) {
+    /*for (GameObject* go : children) {
         go->OnTriggerChildrenUpdate();
-    }
+    }*/
 }
 
 void GameObject::MakeChildOf(GameObject* go) {
