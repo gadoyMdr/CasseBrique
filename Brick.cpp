@@ -3,13 +3,13 @@
 #include "Utils.h"
 
 
-Brick::Brick() : Entity("Brique", Tag::Rectangle, new sf::RectangleShape(Global::baseBriqueSize), sf::Color::White, sf::Vector2f(0, 0)), health(1) {}
+Brick::Brick() : RectangleEntity(Global::themeColor, Global::baseBriqueSize, sf::Vector2f(0,0)), health(1) {}
 
-Brick::Brick(sf::Vector2f pos) : Entity("Brique", Tag::Rectangle, new sf::RectangleShape(Global::baseBriqueSize), Global::themeColor, sf::Vector2f(pos.x, pos.y)), health(1), startHealth(1) {}
+Brick::Brick(sf::Vector2f pos) : RectangleEntity(Global::themeColor, Global::baseBriqueSize, pos), health(1), startHealth(1) {}
 
-Brick::Brick(sf::Vector2f size, int _health, sf::Vector2f pos) : Entity("Brique", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(size.x, size.y)), sf::Color::Blue, pos), health(_health), startHealth(_health) {}
+Brick::Brick(sf::Vector2f size, int _health, sf::Vector2f pos) : RectangleEntity(Global::themeColor, size, pos), health(_health), startHealth(_health) {}
 
-Brick::Brick(sf::Vector2f size, sf::Color color, int _health, sf::Vector2f pos) : Entity("Brique", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(size.x, size.y)), color, pos), health(_health), startHealth(_health){}
+Brick::Brick(sf::Vector2f size, sf::Color color, int _health, sf::Vector2f pos) : RectangleEntity(color, size, pos), health(_health), startHealth(_health){}
 
 Brick::~Brick() {
 
@@ -27,21 +27,20 @@ void Brick::SetHealth(int i) {
 	health = i;
 }
 
-void Brick::OnHit() {
+void Brick::OnHit(Entity& other) {
 	Damage();
+	SetHealthColor();
 }
 
 void Brick::Damage() {
 	health--;
 
-	SetHealthColor();
-
 	if (health <= 0)
 		toDestroy = true;
 }
 
-void Brick::Update() {
-	Entity::Draw();
+void Brick::ReactToCollision(CollisionFrom from, sf::Vector2f offset) {
+	RectangleEntity::ReactToCollision(from, offset);
 }
 
 void Brick::SetHealthColor() {

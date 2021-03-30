@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Entity.h"
+#include "RectangleEntity.h"
 #include <SFML/Graphics.hpp>
 
-class Brick : public Entity
+class Brick : public RectangleEntity
 {
 private:
 	int health;
@@ -20,10 +20,11 @@ public :
 	int GetStartHealth();
 	void SetHealth(int i);
 
-	void OnHit() override;
+	void OnHit(Entity& other) override;
+	void ReactToCollision(CollisionFrom from, sf::Vector2f offset) override;
 
-	void SetHealthColor();
+	void SetHealthColor	();
 	void Damage();
-	void Update();
+	
 };
 

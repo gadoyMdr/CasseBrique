@@ -1,16 +1,36 @@
 #pragma once
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
+#include "Enums.h"
 
 class Entity : public GameObject
 {
+
+public :
+	enum class CollisionFrom {
+		Down,
+		Right,
+		Up,
+		Left
+	};
+
+protected :
+
+	
+
+	CollisionFrom collisionFrom;
+
+	CollisionType collisionType;
+
 private :
 	sf::Shape* shape;
 	sf::Vector2f direction;
 	float speed;
 
 public :
-	Entity(const std::string& name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos);
+	
+
+	Entity(const std::string& name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type = CollisionType::Simple);
 	~Entity();
 
 
@@ -25,12 +45,15 @@ public :
 	void SetSpeed(const float speed);
 	void SetColor(sf::Color* color);
 
-	virtual void OnHit();
+	virtual void OnHit(Entity& other);
 
 	void Update();
 
 	void Move();
 	void CheckCollisions();
-	void Draw();
+	virtual void ReactToCollision(CollisionFrom from, sf::Vector2f offset) = 0;
+	virtual void Draw();
+
+	virtual void OnTriggerChildrenUpdate() override;
 };
 

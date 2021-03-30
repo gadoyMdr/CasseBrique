@@ -2,11 +2,13 @@
 #include "Global.h"
 #include "Utils.h"
 
-Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos) : GameObject(name, _tag) {
+Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type) : GameObject(name, _tag) {
     shape = _shape;
     shape->setFillColor(color);
     shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2);
     shape->setPosition(pos);
+
+    collisionType = type;
 }
 
 Entity::~Entity() {
@@ -56,10 +58,18 @@ void Entity::Update() {
     Draw();
 }
 
-void Entity::OnHit(){}
+void Entity::OnTriggerChildrenUpdate() {
+
+}
+
+void Entity::OnHit(Entity& other){}
 
 void Entity::Draw() {
     Global::window.draw(*shape);
+}
+
+void Entity::Move() {
+    SetPosition(GetPosition() + direction * speed * Global::deltaTime);
 }
 
 void Entity::CheckCollisions() {
@@ -114,28 +124,20 @@ void Entity::CheckCollisions() {
                     {
                         max = dot_product;
                         best_match = i;
+                        collisionFrom = CollisionFrom(i);
                     }
                 }
 
 
+                
 
 
                 if (length < circle->getRadius()) {
-                    go->OnHit();
-
-                    SetPosition(GetPosition() - offsetNeeded);
-
-                    if (best_match == 1 || best_match == 3)
-                        SetDirection(sf::Vector2f(GetDirection().x * -1, GetDirection().y));
-                    else
-                        SetDirection(sf::Vector2f(GetDirection().x, GetDirection().y * -1));
+                    go->OnHit(*this);
+                    ReactToCollision(collisionFrom, offsetNeeded);
                 }
             }
         }
     }
-}
-
-void Entity::Move() {
-    SetPosition(GetPosition() + direction * speed * Global::deltaTime);
 }
 

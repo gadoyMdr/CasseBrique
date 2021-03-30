@@ -1,3 +1,50 @@
-﻿  FMSLLeRetour.cpp
+﻿  Bonus.cpp
+  Brick.cpp
 C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(12,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(69,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(70,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(71,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(72,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Brick.cpp(47,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Entity.cpp
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(12,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(69,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(70,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(71,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(72,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Entity.cpp(92,146): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Entity.cpp(92,99): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  GameManager.cpp
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(12,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(38,52): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(53,83): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(53,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(63,43): warning C4305: 'argument': truncation from 'double' to 'float'
+  GameObject.cpp
+  Player.cpp
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(12,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
+  RectangleEntity.cpp
+  RoundEntity.cpp
+  StickBonus.cpp
+  Generating Code...
   FMSLLeRetour.vcxproj -> C:\Users\logan\source\repos\FMSLLeRetour\Debug\FMSLLeRetour.exe

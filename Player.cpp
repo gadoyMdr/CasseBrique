@@ -1,14 +1,18 @@
 #include "Player.h"
 #include "Global.h"
 
-Player::Player(float _speed, sf::Vector2f s) : Entity("Player", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(s.x, s.y)), Global::themeColor, sf::Vector2f(Global::window.getDefaultView().getSize().x / 2, Global::window.getDefaultView().getSize().y - 100)), speed(_speed){}
+Player::Player(float _speed, sf::Vector2f s) : RectangleEntity(Global::themeColor, s, sf::Vector2f(Global::window.getDefaultView().getSize().x / 2, Global::window.getDefaultView().getSize().y - 100)), speed(_speed){}
 
 Player::~Player(){}
 
 void Player::Update() {
 	ProcessInputs();
 
-	Entity::Update();
+	RectangleEntity::Update();
+}
+
+void Player::ReactToCollision(CollisionFrom from, sf::Vector2f offset) {
+
 }
 
 void Player::ProcessInputs() {

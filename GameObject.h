@@ -1,24 +1,36 @@
 #pragma once
 #include <string>
 #include "MonoBehavior.h"
-
-enum class Tag {
-	Ball,
-	Rectangle,
-	None
-};
+#include <vector>
+#include <SFML/Graphics.hpp>
 
 class GameObject : public MonoBehavior
 {
-	public :
+private:
 
-		Tag tag;
-		std::string name;
+	std::vector<GameObject*> children;
 
-		GameObject();
-		GameObject(const std::string& name);
-		GameObject(const std::string& name, Tag _tag);
+public :
+		
+	enum class Tag {
+		Ball,
+		Rectangle,
+		None
+	};
 
-		void Update();
+	Tag tag;
+	std::string name;
+
+	GameObject();
+	GameObject(const std::string& name);
+	GameObject(const std::string& name, Tag _tag);
+
+	void Update();
+
+	void MoveChildren(sf::Vector2f dir);
+	void MakeChildOf(GameObject* go);
+	void Free(GameObject* go);
+
+	virtual void OnTriggerChildrenUpdate();
 };
 

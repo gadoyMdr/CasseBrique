@@ -2,6 +2,7 @@
 #include "Global.h"
 #include "Player.h"
 #include "Brick.h"
+#include "StickBonus.h"
 
 GameManager* GameManager::instance = nullptr;
 
@@ -39,6 +40,9 @@ void GameManager::CreateBackGround() {
 }
 
 void GameManager::FirstSpawn() {
+    StickBonus * l = new StickBonus(sf::Vector2f(500, 500));
+    
+
     int paddingX = 100;
     int paddingY = 50;
     int offsetx = 150;
@@ -50,16 +54,18 @@ void GameManager::FirstSpawn() {
             l->SetHealth(5);
         }
 
-    Entity* go = new Entity("Ball", Tag::Ball, new sf::CircleShape(20, 50), Global::themeColor, sf::Vector2f(300, 350));
+
+
+    RoundEntity* go = new RoundEntity(Global::themeColor, 20, sf::Vector2f(300, 350));
     go->SetDirection(sf::Vector2f(1, 1));
     go->SetSpeed(350);
 
-    new Player(0.25, sf::Vector2f(80, 18));
+    new Player(0.30, sf::Vector2f(80, 18));
 
-    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), Global::themeColor, sf::Vector2f(0, 0));
+    new RectangleEntity(Global::themeColor, sf::Vector2f(40, 4000), sf::Vector2f(0, 0));
 
-    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(4000, 40)), Global::themeColor, sf::Vector2f(0, 0));
+    new RectangleEntity(Global::themeColor, sf::Vector2f(4000, 40), sf::Vector2f(0, 0));
 
-    new Entity("Rectangle", Tag::Rectangle, new sf::RectangleShape(sf::Vector2f(40, 4000)), Global::themeColor, sf::Vector2f(800, 0));
+    new RectangleEntity(Global::themeColor, sf::Vector2f(40, 4000), sf::Vector2f(800, 0));
 
 }

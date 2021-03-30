@@ -14,20 +14,32 @@
     <Filter Include="GameEngine\MonoBehavior">
       <UniqueIdentifier>{df92127a-c2ea-4be0-a1ea-ba4a9d38ab91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\Entity">
-      <UniqueIdentifier>{7c5f2e82-5e2e-47cd-b8b6-ed6d84615422}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameEngine\Entity\Brick">
-      <UniqueIdentifier>{e1d9df4d-0802-4425-99cd-f457287db5a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameEngine\Entity\Player">
-      <UniqueIdentifier>{fcd35f73-bc25-4ccb-8105-db592f8d4b39}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameEngine\MonoBehavior\GameObject">
       <UniqueIdentifier>{79248b94-52e7-4d9a-abfc-4b6d0b600218}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameEngine\MonoBehavior\GameManager">
       <UniqueIdentifier>{0609ba0d-bcfa-46c0-b1f4-a70936b93a1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity">
+      <UniqueIdentifier>{7c5f2e82-5e2e-47cd-b8b6-ed6d84615422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RoundEntity">
+      <UniqueIdentifier>{9e7c49df-1428-493e-ae82-222357f6658e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity">
+      <UniqueIdentifier>{620e4523-1d56-4201-9dc9-5641a40fd461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity\Brick">
+      <UniqueIdentifier>{e1d9df4d-0802-4425-99cd-f457287db5a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus">
+      <UniqueIdentifier>{8650b3bb-3de8-4d0e-96df-0d7d4d6f59b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity\Player">
+      <UniqueIdentifier>{fcd35f73-bc25-4ccb-8105-db592f8d4b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\Others">
+      <UniqueIdentifier>{641c8ce2-5a08-4f70-af82-3f5269adb99f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,23 +56,32 @@
       <Filter>GameEngine\MonoBehavior</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>GameEngine\Entity</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity</Filter>
     </ClCompile>
     <ClCompile Include="Brick.cpp">
-      <Filter>GameEngine\Entity\Brick</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity\Brick</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>GameEngine\Entity\Player</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity\Player</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>GameEngine\MonoBehavior\GameManager</Filter>
     </ClCompile>
+    <ClCompile Include="Bonus.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="StickBonus.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleEntity.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundEntity.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
@@ -70,16 +91,34 @@
       <Filter>GameEngine\MonoBehavior</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>GameEngine\Entity</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Brick.h">
-      <Filter>GameEngine\Entity\Brick</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity\Brick</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>GameEngine\Entity\Player</Filter>
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity\Player</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>GameEngine\MonoBehavior\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonus.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="StickBonus.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleEntity.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundEntity.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>GameEngine\MonoBehavior\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>GameEngine\MonoBehavior\Others</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
