@@ -3,6 +3,8 @@
 #include "Player.h"
 #include "Brick.h"
 #include "StickBonus.h"
+#include "Utils.h"
+
 
 GameManager* GameManager::instance = nullptr;
 
@@ -30,6 +32,7 @@ std::vector<RoundEntity*>* GameManager::GetBalls() {
 }
 
 void GameManager::Update() {
+    CheckEveryCollisions();
     Global::window.draw(backGroundSprite);
 }
 
@@ -51,6 +54,38 @@ void GameManager::CreateBackGround() {
     backGroundSprite.setColor(Global::backGroundColor);
 }
 
+void GameManager::SetPlayer(Player* _player) {
+    player = _player;
+}
+
+Player* GameManager::GetPlayer() {
+    return player;
+}
+
+void GameManager::CheckEveryCollisions() {
+    
+
+    for (MonoBehavior* monoA : MonoBehavior::GetAllMonobehaviors())
+    {
+        Entity* a = dynamic_cast<Entity*>(monoA);
+
+        if (a == nullptr)
+            continue;
+        
+        for (MonoBehavior* monoB : MonoBehavior::GetAllMonobehaviors())
+        {
+            Entity* b = dynamic_cast<Entity*>(monoB);
+            if (b == nullptr)
+                continue;
+            
+            if (Utils::CheckCollision(*a, *b)) {
+                break;
+            }
+        }
+        
+    }
+}
+
 void GameManager::FirstSpawn() {
     StickBonus * l = new StickBonus(sf::Vector2f(500, 500));
     
@@ -63,7 +98,7 @@ void GameManager::FirstSpawn() {
     for (int j = 0; j < 3; j++)
         for (int i = 0; i < 5; i++) {
             Brick* l = new Brick(sf::Vector2f(i * offsetx + paddingX, j * offsety + paddingY));
-            l->SetHealth(5);
+            l->SetHealth(4);
         }
 
 
@@ -74,7 +109,7 @@ void GameManager::FirstSpawn() {
 
     AddBall(go);
 
-    new Player(0.30, sf::Vector2f(80, 18));
+    SetPlayer(new Player(500, sf::Vector2f(80, 18)));
 
     new RectangleEntity(Global::themeColor, sf::Vector2f(40, 4000), sf::Vector2f(0, 0));
 

@@ -21,7 +21,7 @@ public :
 	void SetHealth(int i);
 
 	void OnHit(Entity& other) override;
-	void ReactToCollision(CollisionFrom from, sf::Vector2f offset) override;
+	void ReactToCollision(sf::Vector2f from, sf::Vector2f offset) override;
 
 	void SetHealthColor	();
 	void Damage();

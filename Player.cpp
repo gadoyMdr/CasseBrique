@@ -11,7 +11,7 @@ void Player::Update() {
 	RectangleEntity::Update();
 }
 
-void Player::ReactToCollision(CollisionFrom from, sf::Vector2f offset) {
+void Player::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 
 }
 
@@ -24,7 +24,7 @@ void Player::ProcessInputs() {
 }
 
 void Player::Move(sf::Vector2f dir) {
-	sf::Vector2f temp(GetPosition() + dir * speed);
+	sf::Vector2f temp(GetPosition() + dir * speed * Global::deltaTime);
 
 	if(CheckPosition(&temp))
 		SetPosition(temp);

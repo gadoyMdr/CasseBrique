@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "RoundEntity.h"
+#include "Player.h"
 
 class GameManager : public MonoBehavior
 {
@@ -14,7 +15,9 @@ private :
 	//GameRelated
 	sf::Sprite backGroundSprite;
 	sf::Texture backGroundTexture;
+
 	std::vector<RoundEntity*> balls;
+	Player* player;
 
 public :
 	GameManager(GameManager& other) = delete;
@@ -22,14 +25,19 @@ public :
 
 	static GameManager* GetInstance();
 
+	void SetPlayer(Player* player);
 	void AddBall(RoundEntity* ball);
+
 	void RemoveBall(RoundEntity* ball);
+
+	Player* GetPlayer();
 	std::vector<RoundEntity*>* GetBalls();
 
 	void StartNewGame();
 	void InitializeGame();
 	void CreateBackGround();
 	void FirstSpawn();
+	void CheckEveryCollisions();
 
 	void Update();
 };

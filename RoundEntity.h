@@ -6,6 +6,6 @@ public :
 	RoundEntity(sf::Color color, float size, sf::Vector2f pos);
 	~RoundEntity();
 
-	virtual void ReactToCollision(CollisionFrom from, sf::Vector2f offset) override;
+	virtual void ReactToCollision(sf::Vector2f from, sf::Vector2f offset) override;
 };
 

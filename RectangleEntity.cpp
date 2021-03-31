@@ -4,6 +4,6 @@ RectangleEntity::RectangleEntity(sf::Color color, sf::Vector2f size, sf::Vector2
 
 RectangleEntity::~RectangleEntity(){}
 
-void RectangleEntity::ReactToCollision(CollisionFrom from, sf::Vector2f offset) {
+void RectangleEntity::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 
 }

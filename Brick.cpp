@@ -39,7 +39,7 @@ void Brick::Damage() {
 		toDestroy = true;
 }
 
-void Brick::ReactToCollision(CollisionFrom from, sf::Vector2f offset) {
+void Brick::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 	RectangleEntity::ReactToCollision(from, offset);
 }
 

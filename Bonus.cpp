@@ -9,6 +9,6 @@ Bonus::~Bonus() {
 
 }
 
-void Bonus::ReactToCollision(CollisionFrom from, sf::Vector2f offset) {
+void Bonus::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 	
 }

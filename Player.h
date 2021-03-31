@@ -12,7 +12,7 @@ public :
 	~Player();
 	
 	void Update() override;
-	void ReactToCollision(CollisionFrom from, sf::Vector2f offset) override;
+	void ReactToCollision(sf::Vector2f from, sf::Vector2f offset) override;
 
 	void ProcessInputs();
 	void Move(sf::Vector2f dir);

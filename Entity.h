@@ -17,9 +17,6 @@ public :
 protected :
 
 	
-
-	CollisionFrom collisionFrom;
-
 	CollisionType collisionType;
 
 private :
@@ -39,19 +36,21 @@ public :
 	float GetSpeed();
 	sf::Vector2f GetPosition();
 	sf::Color GetColor();
+	CollisionType GetCollisionType();
 
 	void SetPosition(const sf::Vector2f pos);
 	void SetDirection(const sf::Vector2f direction);
 	void SetSpeed(const float speed);
 	void SetColor(sf::Color* color);
+	void SetCollisionType(CollisionType collisionType);
 
 	virtual void OnHit(Entity& other);
 
 	void Update();
 
 	virtual void Move();
-	void CheckCollisions();
-	virtual void ReactToCollision(CollisionFrom from, sf::Vector2f offset) = 0;
+	//void CheckCollisions();
+	virtual void ReactToCollision(sf::Vector2f from, sf::Vector2f offset) = 0;
 	virtual void Draw();
 
 	virtual void OnTriggerChildrenUpdate() override;
