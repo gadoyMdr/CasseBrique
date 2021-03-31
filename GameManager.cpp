@@ -4,7 +4,7 @@
 #include "Brick.h"
 #include "StickBonus.h"
 #include "Utils.h"
-
+#include "Ball.h"
 
 GameManager* GameManager::instance = nullptr;
 
@@ -101,13 +101,11 @@ void GameManager::FirstSpawn() {
             l->SetHealth(4);
         }
 
+    Ball* ball = new Ball(sf::Vector2f(300, 350));
+    ball->SetDirection(sf::Vector2f(1, 1));
+    ball->SetSpeed(350);
 
-
-    RoundEntity* go = new RoundEntity(Global::themeColor, 20, sf::Vector2f(300, 350));
-    go->SetDirection(sf::Vector2f(1, 1));
-    go->SetSpeed(350);
-
-    AddBall(go);
+    AddBall(ball);
 
     SetPlayer(new Player(500, sf::Vector2f(80, 18)));
 

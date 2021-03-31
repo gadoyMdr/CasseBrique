@@ -26,11 +26,14 @@ public :
 	GameObject(const std::string& name);
 	GameObject(const std::string& name, Tag _tag);
 
-	void Update();
+	virtual void Update() override;
 
 	void MakeChildOf(GameObject* go);
 	void Free();
 
+	virtual void OnMadeChildOf(GameObject* go);
 	virtual void OnTriggerChildrenUpdate();
+
+	void Destroy() override;
 };
 

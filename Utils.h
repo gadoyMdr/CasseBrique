@@ -137,14 +137,11 @@ public :
 
 				a.OnHit(b);
 				b.OnHit(a);
-				if (a.GetCollisionType() == CollisionType::Sticky) {
-					b.MakeChildOf(&a);
+				if (b.GetCollisionType() == CollisionType::Sticky) {
+					a.MakeChildOf(&b);
 
 					return true;
 				}
-
-				std::cout << (int)a.GetCollisionType() << std::endl;
-				
 
 				to = sf::Vector2f(from.x * -1, from.y * -1);
 

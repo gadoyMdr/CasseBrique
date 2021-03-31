@@ -46,10 +46,9 @@ public :
 
 	virtual void OnHit(Entity& other);
 
-	void Update();
+	virtual void Update() override;
 
 	virtual void Move();
-	//void CheckCollisions();
 	virtual void ReactToCollision(sf::Vector2f from, sf::Vector2f offset) = 0;
 	virtual void Draw();
 

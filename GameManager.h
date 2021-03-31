@@ -3,8 +3,9 @@
 #include "MonoBehavior.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "RoundEntity.h"
-#include "Player.h"
+
+class Player;
+class RoundEntity;
 
 class GameManager : public MonoBehavior
 {

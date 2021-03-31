@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include <iostream>
 
 using namespace std;
 
@@ -19,11 +20,19 @@ GameObject::GameObject(const std::string& _name, Tag _tag) : GameObject(_name) {
 }
 
 void GameObject::Update(){
+    for (GameObject* go : children) {
+        go->OnTriggerChildrenUpdate();
+    }
 }
 
 void GameObject::MakeChildOf(GameObject* go) {
+    if (std::count(go->children.begin(), go->children.end(), this)) return;
+
+    
     go->children.push_back(this);
     parent = go;
+
+    OnMadeChildOf(go);
 }
 
 void GameObject::Free() {
@@ -31,4 +40,11 @@ void GameObject::Free() {
     parent = nullptr;
 }
 
+void GameObject::OnMadeChildOf(GameObject* other){}
+
 void GameObject::OnTriggerChildrenUpdate() {}
+
+void GameObject::Destroy() {
+    Free();
+    MonoBehavior::Destroy();
+}

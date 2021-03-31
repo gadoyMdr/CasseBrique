@@ -16,7 +16,7 @@ public :
 	MonoBehavior();
 	~MonoBehavior();
 
-	void Destroy();
+	virtual void Destroy();
 
 	static std::list<MonoBehavior*> GetAllMonobehaviors();
 };

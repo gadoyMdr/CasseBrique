@@ -41,6 +41,9 @@
     <Filter Include="GameEngine\MonoBehavior\Others">
       <UniqueIdentifier>{641c8ce2-5a08-4f70-af82-3f5269adb99f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Ball">
+      <UniqueIdentifier>{1e0e9273-f495-4970-8f1d-3d392a9582ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMSLLeRetour.cpp">
@@ -78,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="RoundEntity.cpp">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Ball</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +125,9 @@
     </ClInclude>
     <ClInclude Include="Enums.h">
       <Filter>GameEngine\MonoBehavior\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Ball</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
