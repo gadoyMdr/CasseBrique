@@ -44,6 +44,15 @@
     <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Ball">
       <UniqueIdentifier>{1e0e9273-f495-4970-8f1d-3d392a9582ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus\Sticky">
+      <UniqueIdentifier>{939dddc5-0255-4287-ab64-e4a3996a3db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus\Multiple">
+      <UniqueIdentifier>{010df58e-1a22-4c43-a66a-b92ee6754251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\MonoBehavior\UIManager">
+      <UniqueIdentifier>{77561dea-3dba-43bc-9013-14b6751d6e01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMSLLeRetour.cpp">
@@ -73,9 +82,6 @@
     <ClCompile Include="Bonus.cpp">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
     </ClCompile>
-    <ClCompile Include="StickBonus.cpp">
-      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
-    </ClCompile>
     <ClCompile Include="RectangleEntity.cpp">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity</Filter>
     </ClCompile>
@@ -84,6 +90,15 @@
     </ClCompile>
     <ClCompile Include="Ball.cpp">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Ball</Filter>
+    </ClCompile>
+    <ClCompile Include="StickBonus.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus\Sticky</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleBonus.cpp">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus\Multiple</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>GameEngine\MonoBehavior\UIManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,9 +126,6 @@
     <ClInclude Include="Bonus.h">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
     </ClInclude>
-    <ClInclude Include="StickBonus.h">
-      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus</Filter>
-    </ClInclude>
     <ClInclude Include="RectangleEntity.h">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RectangleEntity</Filter>
     </ClInclude>
@@ -128,6 +140,15 @@
     </ClInclude>
     <ClInclude Include="Ball.h">
       <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="StickBonus.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus\Sticky</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleBonus.h">
+      <Filter>GameEngine\MonoBehavior\GameObject\Entity\RoundEntity\Bonus\Multiple</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>GameEngine\MonoBehavior\UIManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

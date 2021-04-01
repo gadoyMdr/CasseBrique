@@ -1,6 +1,7 @@
 #include "Entity.h"
 #include "Global.h"
 #include "Utils.h"
+#include "GameManager.h"
 
 Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type) : GameObject(name, _tag) {
     shape = _shape;
@@ -57,6 +58,8 @@ void Entity::SetSpeed(const float _speed) {
 
 
 void Entity::Update() {
+    if (GameManager::GetInstance()->isGameOver) return;
+
     GameObject::Update();
     Move();
     Draw();

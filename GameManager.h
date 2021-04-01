@@ -19,8 +19,11 @@ private :
 
 	std::vector<Ball*> balls;
 	Player* player;
+	
 
 public :
+	bool isGameOver;
+
 	GameManager(GameManager& other) = delete;
 	void operator=(const GameManager&) = delete;
 
@@ -32,7 +35,7 @@ public :
 	void RemoveBall(Ball* ball);
 
 	Player* GetPlayer();
-	std::vector<Ball*>* GetBalls();
+	std::vector<Ball*> GetBalls();
 
 	void StartNewGame();
 	void InitializeGame();
@@ -43,7 +46,9 @@ public :
 	void ReleaseStickyCollisions();
 	void CheckBallsPosition();
 	void Update();
+	void PlayerLoseHealth();
 
+	void EndGame();
 	void ResetPlayer();
 	void SpawnNewBall();
 	void OnBallsLost();	//hilarious

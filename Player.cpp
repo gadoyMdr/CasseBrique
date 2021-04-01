@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Global.h"
 
-Player::Player(float _speed, sf::Vector2f s) : RectangleEntity(Global::themeColor, s, sf::Vector2f(Global::window.getDefaultView().getSize().x / 2, Global::window.getDefaultView().getSize().y - 100)), speed(_speed){}
+Player::Player(float _speed, sf::Vector2f s) : RectangleEntity(Global::themeColor, s, sf::Vector2f(Global::window.getDefaultView().getSize().x / 2, Global::window.getDefaultView().getSize().y - 100)), speed(_speed), health(2){}
 
 Player::~Player(){}
 
@@ -13,6 +13,14 @@ void Player::Update() {
 
 void Player::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 
+}
+
+void Player::ReduceHealth() {
+	health--;
+}
+
+int Player::GetHealth() {
+	return health;
 }
 
 void Player::ProcessInputs() {

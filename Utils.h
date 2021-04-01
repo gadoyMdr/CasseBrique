@@ -67,6 +67,29 @@ public :
 
 	static bool CheckCollision(Entity& a, Entity& b) {
 
+
+		if (a.tag == GameObject::Tag::Ball && b.tag == GameObject::Tag::Ball) {
+			sf::CircleShape* circleA = (sf::CircleShape*)a.GetShape();
+			sf::CircleShape* circleB = (sf::CircleShape*)b.GetShape();
+			sf::Vector2f posA = a.GetPosition();
+			sf::Vector2f posB = b.GetPosition();
+			sf::Vector2f line = posB - posA;
+
+			sf::Vector2f crossProduct = Utils::Normalize(sf::Vector2f(line.y, -line.x));
+			sf::Vector2f finall = (float)2 * (Utils::Dot(crossProduct, a.GetDirection()) * crossProduct) - a.GetDirection();
+
+			float distance = std::sqrt((line.x * line.x) + (line.y * line.y));
+			float penetrationDistance = (circleA->getRadius() + circleB->getRadius()) - distance;
+
+			if (penetrationDistance > 0) {
+
+				a.OnHit(b);
+				b.OnHit(a);
+				a.SetDirection(finall);
+			}
+		}
+
+
 		if (a.tag == GameObject::Tag::Ball && b.tag == GameObject::Tag::Rectangle) {
 
 			sf::CircleShape* circle = (sf::CircleShape*)a.GetShape();
@@ -101,16 +124,10 @@ public :
 			float max = 0.0f;
 			int best_match = -1;
 
-			
-
-
-
-
 
 			if (length < circle->getRadius()) {
 
 				sf::Vector2f from;
-				sf::Vector2f to;
 
 				for (int i = 0; i < 4; i++)
 				{
@@ -125,21 +142,24 @@ public :
 
 				a.OnHit(b);
 				b.OnHit(a);
+
 				if (b.GetCollisionType() == CollisionType::Sticky) {
 					a.MakeChildOf(&b);
 
 					return true;
 				}
 
-				to = sf::Vector2f(from.x * -1, from.y * -1);
 
 				a.ReactToCollision(from, offsetNeeded);
-				b.ReactToCollision(to, offsetNeeded);
 
 				return true;
 			}
 		}
 
 		return false;
+	}
+
+	static sf::Vector2f RandomWithinCircle() {
+		return sf::Vector2f(((float)rand() / (RAND_MAX)) + 1, ((float)rand() / (RAND_MAX)) + 1);
 	}
 };

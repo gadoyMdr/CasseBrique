@@ -5,6 +5,8 @@
 #include "StickBonus.h"
 #include "Utils.h"
 #include "Ball.h"
+#include "MultipleBonus.h"
+#include "UIManager.h"
 
 using namespace std;
 
@@ -29,8 +31,8 @@ void GameManager::RemoveBall(Ball* ball) {
     balls.erase(std::remove(balls.begin(), balls.end(), ball), balls.end());
 }
 
-std::vector<Ball*>* GameManager::GetBalls() {
-    return &balls;
+std::vector<Ball*> GameManager::GetBalls() {
+    return balls;
 }
 
 void GameManager::Update() {
@@ -38,6 +40,19 @@ void GameManager::Update() {
     CheckForUserClick();
     CheckBallsPosition();
     Global::window.draw(backGroundSprite);
+}
+
+void GameManager::PlayerLoseHealth() {
+    player->ReduceHealth();
+
+    if (player->GetHealth() <= 0) {
+        EndGame();
+    }
+}
+
+void GameManager::EndGame() {
+    UIManager::GetInstance()->ShowGameOver();
+    isGameOver = true;
 }
 
 void GameManager::CheckBallsPosition() {
@@ -63,6 +78,7 @@ void GameManager::CheckBallsPosition() {
 void GameManager::OnBallsLost() {
     ResetPlayer();
     SpawnNewBall();
+    PlayerLoseHealth();
 }
 
 void GameManager::ResetPlayer() {
@@ -109,7 +125,7 @@ void GameManager::CheckEveryCollisions() {
         for (MonoBehavior* monoB : MonoBehavior::GetAllMonobehaviors())
         {
             Entity* b = dynamic_cast<Entity*>(monoB);
-            if (b == nullptr)
+            if (b == nullptr || a == b)
                 continue;
             
             if (Utils::CheckCollision(*a, *b)) {
@@ -159,9 +175,6 @@ void GameManager::SpawnNewBall() {
 }
 
 void GameManager::FirstSpawn() {
-    StickBonus * l = new StickBonus(sf::Vector2f(500, 500));
-    
-
     int paddingX = 100;
     int paddingY = 50;
     int offsetx = 150;
@@ -173,9 +186,11 @@ void GameManager::FirstSpawn() {
             l->SetHealth(4);
         }
 
-    SetPlayer(new Player(500, sf::Vector2f(80, 18)));
+    Player* p = new Player(500, sf::Vector2f(80, 18));
+    SetPlayer(p);
 
-    SpawnNewBall();
+    new StickBonus(p->GetPosition());
+    new MultipleBonus(sf::Vector2f(700, 500));
 
     new RectangleEntity(Global::themeColor, sf::Vector2f(40, 4000), sf::Vector2f(0, 0));
 
