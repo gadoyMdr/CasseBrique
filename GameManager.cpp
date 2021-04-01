@@ -6,6 +6,8 @@
 #include "Utils.h"
 #include "Ball.h"
 
+using namespace std;
+
 GameManager* GameManager::instance = nullptr;
 
 GameManager::GameManager() {
@@ -19,22 +21,52 @@ GameManager* GameManager::GetInstance() {
     return instance;
 }
 
-void GameManager::AddBall(RoundEntity* ball) {
+void GameManager::AddBall(Ball* ball) {
     balls.push_back(ball);
 }
 
-void GameManager::RemoveBall(RoundEntity* ball) {
+void GameManager::RemoveBall(Ball* ball) {
     balls.erase(std::remove(balls.begin(), balls.end(), ball), balls.end());
 }
 
-std::vector<RoundEntity*>* GameManager::GetBalls() {
+std::vector<Ball*>* GameManager::GetBalls() {
     return &balls;
 }
 
 void GameManager::Update() {
     CheckEveryCollisions();
     CheckForUserClick();
+    CheckBallsPosition();
     Global::window.draw(backGroundSprite);
+}
+
+void GameManager::CheckBallsPosition() {
+    bool isOkay = false;
+    int max = 60;
+    for (Ball* ball : balls) {
+        sf::Vector2f pos = ball->GetPosition();
+
+        if (pos.x < Global::window.getDefaultView().getSize().x + max &&
+            pos.x > 0 - max &&
+            pos.y < Global::window.getDefaultView().getSize().y + max &&
+            pos.y > 0 - max) {
+
+            isOkay = true;
+        }
+    }
+
+    if (!isOkay) {
+        OnBallsLost();
+    }
+}
+
+void GameManager::OnBallsLost() {
+    ResetPlayer();
+    SpawnNewBall();
+}
+
+void GameManager::ResetPlayer() {
+    player->SetPosition(sf::Vector2f(Global::window.getDefaultView().getSize().x / 2, Global::window.getDefaultView().getSize().y - 100));
 }
 
 void GameManager::StartNewGame() {
@@ -93,6 +125,7 @@ void GameManager::CheckForUserClick() {
         ReleaseStickyCollisions();
     }
 }
+
 void GameManager::ReleaseStickyCollisions() {
     for (MonoBehavior* mono : all) {
         Entity* a = dynamic_cast<Entity*>(mono);
@@ -116,6 +149,14 @@ void GameManager::ReleaseStickyCollisions() {
     }
 }
 
+void GameManager::SpawnNewBall() {
+    Ball* ball = new Ball(sf::Vector2f(player->GetPosition().x, player->GetPosition().y - 80));
+    ball->SetDirection(sf::Vector2f(0,1));
+    ball->SetSpeed(350);
+
+    AddBall(ball);
+}
+
 void GameManager::FirstSpawn() {
     StickBonus * l = new StickBonus(sf::Vector2f(500, 500));
     
@@ -131,13 +172,9 @@ void GameManager::FirstSpawn() {
             l->SetHealth(4);
         }
 
-    Ball* ball = new Ball(sf::Vector2f(300, 350));
-    ball->SetDirection(sf::Vector2f(1, 1));
-    ball->SetSpeed(350);
-
-    AddBall(ball);
-
     SetPlayer(new Player(500, sf::Vector2f(80, 18)));
+
+    SpawnNewBall();
 
     new RectangleEntity(Global::themeColor, sf::Vector2f(40, 4000), sf::Vector2f(0, 0));
 

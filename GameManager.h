@@ -5,7 +5,7 @@
 #include <vector>
 
 class Player;
-class RoundEntity;
+class Ball;
 
 class GameManager : public MonoBehavior
 {
@@ -17,7 +17,7 @@ private :
 	sf::Sprite backGroundSprite;
 	sf::Texture backGroundTexture;
 
-	std::vector<RoundEntity*> balls;
+	std::vector<Ball*> balls;
 	Player* player;
 
 public :
@@ -27,12 +27,12 @@ public :
 	static GameManager* GetInstance();
 
 	void SetPlayer(Player* player);
-	void AddBall(RoundEntity* ball);
+	void AddBall(Ball* ball);
 
-	void RemoveBall(RoundEntity* ball);
+	void RemoveBall(Ball* ball);
 
 	Player* GetPlayer();
-	std::vector<RoundEntity*>* GetBalls();
+	std::vector<Ball*>* GetBalls();
 
 	void StartNewGame();
 	void InitializeGame();
@@ -41,6 +41,11 @@ public :
 	void CheckEveryCollisions();
 	void CheckForUserClick();
 	void ReleaseStickyCollisions();
+	void CheckBallsPosition();
 	void Update();
+
+	void ResetPlayer();
+	void SpawnNewBall();
+	void OnBallsLost();	//hilarious
 };
 
