@@ -78,6 +78,7 @@ void GameManager::InitializeGame() {
     FirstSpawn();
 }
 
+
 void GameManager::CreateBackGround() {
     backGroundTexture.loadFromFile("Textures/background.png");
     backGroundTexture.setSmooth(true);
