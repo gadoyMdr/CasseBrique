@@ -38,8 +38,8 @@ public :
 	sf::Color GetColor();
 	CollisionType GetCollisionType();
 
-	void SetPosition(const sf::Vector2f pos);
-	void SetDirection(const sf::Vector2f direction);
+	virtual void SetPosition(const sf::Vector2f pos);
+	virtual void SetDirection(const sf::Vector2f direction);
 	void SetSpeed(const float speed);
 	void SetColor(sf::Color* color);
 	void SetCollisionType(CollisionType collisionType);

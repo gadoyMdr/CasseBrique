@@ -15,17 +15,30 @@ void Ball::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 }
 
 void Ball::OnTriggerChildrenUpdate() {
-    std::cout << "dddd" << std::endl;
-    SetPosition(GetPosition() + offset);
+    SetPosition(GameManager::GetInstance()->GetPlayer()->GetPosition() - offset);
 }
 
 void Ball::OnMadeChildOf(GameObject* other) {
     offset = GameManager::GetInstance()->GetPlayer()->GetPosition() - GetPosition();
 }
 
+void Ball::Update() 
+{
+    Entity::Update();
+}
+
+void Ball::SetPosition(const sf::Vector2f pos)
+{
+    Entity::SetPosition(pos);
+}
+
+void Ball::SetDirection(const sf::Vector2f direction)
+{
+    Entity::SetDirection(direction);
+}
+
 void Ball::Move() {
     if (parent != nullptr) return;
-    //SetPosition(GetPosition() - offset);
+    
     Entity::Move();
-    //posWithoutOffset = GetPosition();
 }

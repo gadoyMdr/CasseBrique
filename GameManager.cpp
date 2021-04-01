@@ -33,6 +33,7 @@ std::vector<RoundEntity*>* GameManager::GetBalls() {
 
 void GameManager::Update() {
     CheckEveryCollisions();
+    CheckForUserClick();
     Global::window.draw(backGroundSprite);
 }
 
@@ -83,6 +84,35 @@ void GameManager::CheckEveryCollisions() {
             }
         }
         
+    }
+}
+
+void GameManager::CheckForUserClick() {
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        
+        ReleaseStickyCollisions();
+    }
+}
+void GameManager::ReleaseStickyCollisions() {
+    for (MonoBehavior* mono : all) {
+        Entity* a = dynamic_cast<Entity*>(mono);
+
+        if (a == nullptr)
+            continue;
+
+        if (a->GetCollisionType() == CollisionType::Sticky) {
+            a->SetCollisionType(CollisionType::Simple);
+
+            for (GameObject* go : a->GetChildren()) {
+                Entity* l = dynamic_cast<Entity*>(go);
+                l->Free();
+                sf::Vector2i m = sf::Mouse::getPosition(Global::window);
+                l->SetDirection(Utils::Normalize(sf::Vector2f(m.x, m.y) - l->GetPosition()));
+            }
+
+            a->Free();
+        }
+            
     }
 }
 

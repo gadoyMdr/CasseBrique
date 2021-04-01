@@ -19,5 +19,10 @@ public :
 	void OnTriggerChildrenUpdate() override;
 	void OnMadeChildOf(GameObject* other) override;
 	void Move() override;
+	void Update() override;
+
+
+	void SetPosition(const sf::Vector2f pos) override;
+	void SetDirection(const sf::Vector2f direction) override;
 };
 

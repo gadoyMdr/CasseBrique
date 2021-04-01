@@ -19,6 +19,10 @@ GameObject::GameObject(const std::string& _name, Tag _tag) : GameObject(_name) {
     tag = _tag;
 }
 
+std::vector<GameObject*> GameObject::GetChildren() {
+    return children;
+}
+
 void GameObject::Update(){
     for (GameObject* go : children) {
         go->OnTriggerChildrenUpdate();
@@ -28,6 +32,7 @@ void GameObject::Update(){
 void GameObject::MakeChildOf(GameObject* go) {
     if (std::count(go->children.begin(), go->children.end(), this)) return;
 
+    std::cout << "lol" << std::endl;
     
     go->children.push_back(this);
     parent = go;
@@ -36,6 +41,8 @@ void GameObject::MakeChildOf(GameObject* go) {
 }
 
 void GameObject::Free() {
+    if (parent == nullptr) return;
+
     parent->children.erase(std::remove(parent->children.begin(), parent->children.end(), this), parent->children.end());
     parent = nullptr;
 }

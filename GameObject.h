@@ -26,6 +26,7 @@ public :
 	GameObject(const std::string& name);
 	GameObject(const std::string& name, Tag _tag);
 
+	std::vector<GameObject*> GetChildren();
 	virtual void Update() override;
 
 	void MakeChildOf(GameObject* go);

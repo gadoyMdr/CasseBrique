@@ -11,21 +11,9 @@ class Utils {
 public :
 	static sf::Vector2f Normalize(const sf::Vector2f toNormalize) {
 
-		sf::Vector2f returned = toNormalize;
+		float fMagnitude = std::sqrt((toNormalize.x * toNormalize.x) + (toNormalize.y * toNormalize.y));
 
-		if (toNormalize.x <= 1 && toNormalize.y <= 1)
-			return returned;
-
-		float temp = (float)(1.0 / fmax((double)toNormalize.x, (double)toNormalize.y));
-
-		if (toNormalize.x > toNormalize.y) {
-			returned.x = 1;
-			returned.y = toNormalize.y * temp;
-		}
-		else {
-			returned.y = 1;
-			returned.x = toNormalize.x * temp;
-		}
+		sf::Vector2f returned = toNormalize / fMagnitude;
 
 		return returned;
 	}

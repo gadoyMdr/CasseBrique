@@ -39,7 +39,8 @@ public :
 	void CreateBackGround();
 	void FirstSpawn();
 	void CheckEveryCollisions();
-
+	void CheckForUserClick();
+	void ReleaseStickyCollisions();
 	void Update();
 };
 
