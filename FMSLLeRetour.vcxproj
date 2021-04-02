@@ -160,12 +160,12 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="MonoBehavior.cpp" />
-    <ClCompile Include="MultipleBonus.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RectangleEntity.cpp" />
     <ClCompile Include="RoundEntity.cpp" />
     <ClCompile Include="StickBonus.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="YellowBrick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -177,13 +177,13 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="MonoBehavior.h" />
-    <ClInclude Include="MultipleBonus.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RectangleEntity.h" />
     <ClInclude Include="RoundEntity.h" />
     <ClInclude Include="StickBonus.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="YellowBrick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

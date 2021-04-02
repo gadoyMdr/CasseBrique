@@ -35,8 +35,10 @@ void Brick::OnHit(Entity& other) {
 void Brick::Damage() {
 	health--;
 
-	if (health <= 0)
+	if (health <= 0) {
 		toDestroy = true;
+	}
+		
 }
 
 void Brick::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {

@@ -5,7 +5,7 @@
 #include "StickBonus.h"
 #include "Utils.h"
 #include "Ball.h"
-#include "MultipleBonus.h"
+#include "YellowBrick.h"
 #include "UIManager.h"
 
 using namespace std;
@@ -85,6 +85,7 @@ void GameManager::OnBallsLost() {
 
 void GameManager::ResetPlayer() {
     player->Entity::SetPosition(sf::Vector2f(Global::window.getDefaultView().getSize().x / 2, Global::window.getDefaultView().getSize().y - 100));
+    new StickBonus(player->Entity::GetPosition());
 }
 
 void GameManager::StartNewGame() {
@@ -188,6 +189,9 @@ void GameManager::FirstSpawn() {
             l->SetHealth(4);
         }
 
+    YellowBrick* k = new YellowBrick(sf::Vector2f(400, 200), sf::Vector2f(200, 15));
+    k->SetHealth(2);
+
     //Player* p = new Player(300, sf::Vector2f(80, 18));
     Player* p = new Player(300, 40);
     SetPlayer(p);
@@ -195,8 +199,6 @@ void GameManager::FirstSpawn() {
 
     new StickBonus(p->Entity::GetPosition());
     new StickBonus(sf::Vector2f(400, 105));
-    new MultipleBonus(sf::Vector2f(200, 200));
-    new MultipleBonus(sf::Vector2f(600, 200));
 
     new RectangleEntity(Global::themeColor, sf::Vector2f(40, 4000), sf::Vector2f(0, 0));
 

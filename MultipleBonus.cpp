@@ -22,7 +22,7 @@ void MultipleBonus::OnHit(Entity& other) {
 	int offset = 80;
 
 	for (int i = 1; i <= balls; i++) {
-		Ball* b = new Ball(sf::Vector2f((float)(i * offset), 630));
+		Ball* b = new Ball(sf::Vector2f((float)(i * offset), 500));
 		b->SetDirection(sf::Vector2f(-0.3, -1));
 		b->SetSpeed(350);
 		GameManager::GetInstance()->AddBall(b);

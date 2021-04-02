@@ -1,48 +1,6 @@
-﻿  GameManager.cpp
+﻿  YellowBrick.cpp
 C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Global.h(12,2): warning C4091: 'static ': ignored on left of 'Global' when no variable is declared
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(57,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(58,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(59,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(60,18): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(105,129): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\Utils.h(105,84): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(105,52): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(162,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(162,64): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(187,83): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\GameManager.cpp(187,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\logan\source\repos\FMSLLeRetour\FMSLLeRetour\YellowBrick.cpp(25,41): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float

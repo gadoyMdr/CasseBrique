@@ -5,8 +5,11 @@
 
 class Brick : public RectangleEntity
 {
-private:
+
+protected :
 	int health;
+private:
+	
 	int startHealth;
 public :
 	Brick();
@@ -24,7 +27,7 @@ public :
 	void ReactToCollision(sf::Vector2f from, sf::Vector2f offset) override;
 
 	void SetHealthColor	();
-	void Damage();
+	virtual void Damage();
 	
 };
 
