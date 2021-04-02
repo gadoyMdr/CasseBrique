@@ -1,15 +1,17 @@
 #pragma once
 
+#include "RoundEntity.h"
 #include "RectangleEntity.h"
 #include <SFML/Graphics.hpp>
 
-class Player : public RectangleEntity
+class Player : public RoundEntity, public RectangleEntity
 {
 private :
 	float speed;
 	int health;
 
 public :
+	Player(float speed, float size);
 	Player(float speed, sf::Vector2f size);
 	~Player();
 	

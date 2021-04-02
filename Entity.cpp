@@ -3,7 +3,7 @@
 #include "Utils.h"
 #include "GameManager.h"
 
-Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type) : GameObject(name, _tag) {
+Entity::Entity(std::string _name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type) : GameObject(name, _tag) {
     shape = _shape;
     shape->setFillColor(color);
     shape->setOrigin(shape->getLocalBounds().width / 2, shape->getLocalBounds().height / 2);
@@ -11,6 +11,8 @@ Entity::Entity(const std::string& _name, Tag _tag, sf::Shape* _shape, sf::Color 
 
     collisionType = type;
 }
+
+Entity::Entity(){}
 
 Entity::~Entity() {
 
@@ -44,7 +46,7 @@ void Entity::SetColor(sf::Color* color) {
     shape->setFillColor(*color);
 }
 
-void Entity::SetPosition(const sf::Vector2f pos) {
+void Entity::SetPosition(const sf::Vector2f pos) {    
     shape->setPosition(pos);
 }
 
@@ -80,7 +82,9 @@ void Entity::Draw() {
 }
 
 void Entity::Move() {
-    if(parent == nullptr)
-        SetPosition(GetPosition() + direction * speed * Global::deltaTime);
+    if (parent != nullptr)return;
+
+    std::cout << GetPosition().x << std::endl;
+    SetPosition(GetPosition() + direction * speed * Global::deltaTime);
 }
 

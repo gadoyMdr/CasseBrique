@@ -85,6 +85,13 @@ public :
 
 				a.OnHit(b);
 				b.OnHit(a);
+
+				if (b.GetCollisionType() == CollisionType::Sticky) {
+					a.MakeChildOf(&b);
+
+					return true;
+				}
+
 				a.SetDirection(finall);
 			}
 		}

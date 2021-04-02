@@ -15,11 +15,11 @@ void Ball::ReactToCollision(sf::Vector2f from, sf::Vector2f offset) {
 }
 
 void Ball::OnTriggerChildrenUpdate() {
-    SetPosition(GameManager::GetInstance()->GetPlayer()->GetPosition() - offset);
+    SetPosition(GameManager::GetInstance()->GetPlayer()->Entity::GetPosition() - offset);
 }
 
 void Ball::OnMadeChildOf(GameObject* other) {
-    offset = GameManager::GetInstance()->GetPlayer()->GetPosition() - GetPosition();
+    offset = GameManager::GetInstance()->GetPlayer()->Entity::GetPosition() - GetPosition();
 }
 
 void Ball::Update() 

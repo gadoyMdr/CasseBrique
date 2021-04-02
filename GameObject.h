@@ -23,8 +23,8 @@ public :
 	std::string name;
 
 	GameObject();
-	GameObject(const std::string& name);
-	GameObject(const std::string& name, Tag _tag);
+	GameObject(std::string name);
+	GameObject(std::string name, Tag _tag);
 
 	std::vector<GameObject*> GetChildren();
 	virtual void Update() override;

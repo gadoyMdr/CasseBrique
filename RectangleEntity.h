@@ -3,6 +3,7 @@
 class RectangleEntity : public Entity
 {
 public :
+	RectangleEntity();
 	RectangleEntity(sf::Color color, sf::Vector2f size, sf::Vector2f pos);
 	~RectangleEntity();
 

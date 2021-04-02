@@ -15,6 +15,6 @@ void StickBonus::EndBonus() {
 }
 
 void StickBonus::OnHit(Entity& other) {
-	GameManager::GetInstance()->GetPlayer()->SetCollisionType(CollisionType::Sticky);
+	GameManager::GetInstance()->GetPlayer()->Entity::SetCollisionType(CollisionType::Sticky);
 	toDestroy = true;
 }

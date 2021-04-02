@@ -26,8 +26,8 @@ private :
 
 public :
 	
-
-	Entity(const std::string& name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type = CollisionType::Simple);
+	Entity();
+	Entity(std::string name, Tag _tag, sf::Shape* _shape, sf::Color color, sf::Vector2f pos, CollisionType type = CollisionType::Simple);
 	~Entity();
 
 

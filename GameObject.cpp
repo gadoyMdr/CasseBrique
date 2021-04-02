@@ -9,13 +9,13 @@ GameObject::GameObject() : MonoBehavior() {
     parent = nullptr;
 }
 
-GameObject::GameObject(const std::string& _name) : MonoBehavior() {
+GameObject::GameObject(std::string _name) : MonoBehavior() {
     name = _name;
     tag = Tag::None;
     parent = nullptr;
 }
 
-GameObject::GameObject(const std::string& _name, Tag _tag) : GameObject(_name) {
+GameObject::GameObject(std::string _name, Tag _tag) : GameObject(_name) {
     tag = _tag;
 }
 
